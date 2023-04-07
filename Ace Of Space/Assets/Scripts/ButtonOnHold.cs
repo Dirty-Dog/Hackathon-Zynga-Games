@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ButtonOnHold : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    int bulletType;
+    public int bulletType;
     public GameObject Spawner;
     public bool isPressed,a = true;
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class ButtonOnHold : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         {
             a = false;
 
-            StartCoroutine( shoot());
+            StartCoroutine(shoot());
         }
     }
 
@@ -53,7 +53,7 @@ public class ButtonOnHold : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
                 {
                     bullet3.transform.position = Spawner.transform.position;
                     bullet3.SetActive(true);
-                    yield return new WaitForSeconds(0.9f);
+                    yield return new WaitForSeconds(0.2f);
                     a = true;
                 }
                 break;
@@ -63,7 +63,7 @@ public class ButtonOnHold : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
                 {
                     bullet2.transform.position = Spawner.transform.position;
                     bullet2.SetActive(true);
-                    yield return new WaitForSeconds(0.9f);
+                    yield return new WaitForSeconds(0.1f);
                     a = true;
                 }
                 break;
@@ -74,7 +74,7 @@ public class ButtonOnHold : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
                     
                     bullet1.transform.position = Spawner.transform.position;
                     bullet1.SetActive(true);
-                    yield return new WaitForSeconds(0.9f);
+                    yield return new WaitForSeconds(0.3f);
                     a = true;
                     
                 }
