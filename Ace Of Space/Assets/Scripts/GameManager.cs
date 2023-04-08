@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -194,6 +195,12 @@ public class GameManager : MonoBehaviour
         else if (Health == 0)
         {
             life1.SetActive(false);
+            Invoke("gameOver", 0.5f);
         }
     }   
+
+    public void gameOver()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
