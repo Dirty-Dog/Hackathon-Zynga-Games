@@ -51,6 +51,7 @@ public class ButtonOnHold : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
                 GameObject bullet3 = Spawner.GetComponent<ObjectPool>().GetBullet3();
                 if (bullet3 != null)
                 {
+                    
                     bullet3.transform.position = Spawner.transform.position;
                     bullet3.SetActive(true);
                     yield return new WaitForSeconds(0.2f);

@@ -8,7 +8,7 @@ public class ObjectPool : MonoBehaviour
     private List<GameObject> PooledObjectT1 = new List<GameObject>();
     private List<GameObject> PooledObjectT2 = new List<GameObject>();
     private List<GameObject> PooledObjectT3 = new List<GameObject>();
-    int amountToPool = 20;
+    int amountToPool = 50;
 
     [SerializeField] private GameObject bulletType1;
     [SerializeField] private GameObject bulletType2;

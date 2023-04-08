@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class MeteorSpawner : MonoBehaviour
 {
-    
+    public GameObject gameManager;
+    public GameManager gm;
+    public float waitTime = 1.8f;
+
     public GameObject Spawner, metSpawner;
     public bool a = true;
 
@@ -14,10 +17,12 @@ public class MeteorSpawner : MonoBehaviour
 
     void Start() 
     {
+        
+        gm = gameManager.GetComponent<GameManager>();
         Po1 = 8;
         Po2 = 3;
         Po3 = 0;
-
+        
     }
     // Update is called once per frame
     void Update()
@@ -29,6 +34,7 @@ public class MeteorSpawner : MonoBehaviour
             StartCoroutine(CalculateRandomness());
             
         }
+        IncreaseDifficulty();
     }
 
     public IEnumerator CalculateRandomness()
@@ -72,15 +78,43 @@ public class MeteorSpawner : MonoBehaviour
             {
                 meteor1.transform.position = metSpawner.transform.position;
                 meteor1.SetActive(true);
-                
+
             }
         }
 
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(waitTime);
         //a = true;
     }
 
     public void IncreaseDifficulty()
     {
+        if(gm.Difficulty > 9)
+        {
+            Po1 = 2;
+            Po2 = 3;
+            Po3 = 9;
+            waitTime = 0.8f;
+        }
+        else if (gm.Difficulty > 7)
+        {
+            Po1 = 1;
+            Po2 = 3;
+            Po3 = 8;
+            waitTime = 1.1f;
+        }
+        else if (gm.Difficulty > 5)
+        {
+            Po1 = 5;
+            Po2 = 7;
+            Po3 = 5;
+            waitTime = 1.4f;
+        }
+        else if (gm.Difficulty > 2)
+        {
+            Po1 = 6;
+            Po2 = 7;
+            Po3 = 4;
+            waitTime = 1.6f;
+        }
     }
 }
